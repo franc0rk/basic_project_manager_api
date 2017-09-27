@@ -51,7 +51,7 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, $this->validationRules(false, $id));
+        $this->validate($request, $this->validationRules(false));
         $data = $request->json()->all();
         $user = User::create($data);
         return response()->json($user,201);
@@ -82,7 +82,7 @@ class UsersController extends Controller
         }
     }
 
-    protected function validationRules($update, $id)
+    protected function validationRules($update, $id = 0)
     {
         ($update) ? $username_rule = 'required|alpha_num|min:4|unique:users,username,'. $id : $username_rule = 'required|alpha_num|min:4|unique:users';
         ($update) ? $email_rule = 'required|email|unique:users,email,'. $id : $email_rule = 'required|email|unique:users';
