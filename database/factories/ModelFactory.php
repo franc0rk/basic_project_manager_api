@@ -16,8 +16,17 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'first_name' => $faker->firstName,
         'last_name'  => $faker->lastName,
         'username'   => $faker->userName,
-        'email'      => $faker->email,
+        'email'      => $faker->unique()->email,
         'password'   => app('hash')->make('secret'),
         'api_token'  => str_random(60),
+    ];
+});
+
+$factory->define(App\Client::class, function (Faker\Generator $faker) {
+    return [
+        'name'    => $faker->name,
+        'email'   => $faker->unique()->email,
+        'phone'   => $faker->phoneNumber,
+        'address' => $faker->address,
     ];
 });
