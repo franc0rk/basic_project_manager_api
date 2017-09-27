@@ -23,7 +23,7 @@ class JsonRequestMiddleware
     public function handle($request, Closure $next, $guard = null)
     {
         if (!$request->isJson()) {
-            return response('NiUnauthorized.', 401);
+            return response('Not valid json request.', 401);
         }
 
         return $next($request);
