@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class ProjectStatus extends Model
 {
     public function projects()
     {
@@ -16,6 +16,6 @@ class Client extends Model
      * @var array
      */
     protected $fillable = [
-        'address', 'email', 'name', 'phone',
+        'name',
     ];
 }

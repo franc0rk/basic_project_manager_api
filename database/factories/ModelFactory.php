@@ -30,3 +30,18 @@ $factory->define(App\Client::class, function (Faker\Generator $faker) {
         'address' => $faker->address,
     ];
 });
+
+$factory->define(App\ProjectStatus::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+    ];
+});
+
+$factory->define(App\Project::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->sentence,
+        'description' => $faker->paragraph,
+        'client_id' => rand(1,10),
+        'project_status_id' => rand(1,4),
+    ];
+});

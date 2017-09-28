@@ -31,4 +31,18 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
     $router->post('clients','ClientsController@store');
     $router->put('clients/{id}','ClientsController@update');
     $router->delete('clients/{id}','ClientsController@destroy');
+
+    //Project Statuses routes
+    $router->get('project_statuses','ProjectStatusesController@index');
+    $router->get('project_statuses/{id}','ProjectStatusesController@show');
+    $router->post('project_statuses','ProjectStatusesController@store');
+    $router->put('project_statuses/{id}','ProjectStatusesController@update');
+    $router->delete('project_statuses/{id}','ProjectStatusesController@destroy');
+
+    //Projects routes
+    $router->get('projects','ProjectsController@index');
+    $router->get('projects/{id}','ProjectsController@show');
+    $router->post('projects','ProjectsController@store');
+    $router->put('projects/{id}','ProjectsController@update');
+    $router->delete('projects/{id}','ProjectsController@destroy');
 });
